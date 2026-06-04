@@ -8,8 +8,13 @@ const { v4: uuidv4 } = require('uuid');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors({ origin: process.env.SITE_URL || '*' }));
-app.use(express.json());
+app.use(cors({
+  origin: [
+    'https://www.painelimpulsionanet.com',
+    'https://painelimpulsionanet.com',
+    'https://painelimpulsionanet.vercel.app'
+  ]
+}));app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const SERVICO_MAP = {
