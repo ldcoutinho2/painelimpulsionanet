@@ -221,29 +221,30 @@
         sessionStorage.setItem("plano_nome_pixel", contentName);
         sessionStorage.setItem("valor_plano", valor);
 
-        if (!sessionStorage.getItem('plano_enviado')) {
+       if (!sessionStorage.getItem('plano_enviado')) {
 
- fetch('https://painelimpulsionanet.onrender.com/evento', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    tipo: 'plano',
-    plano: contentName
-  })
-}).catch(() => {});
+  fetch('https://painelimpulsionanet.onrender.com/evento', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      tipo: 'plano',
+      plano: contentName
+    })
+  }).catch(() => {});
 
-sessionStorage.setItem('plano_enviado', '1');
+  sessionStorage.setItem('plano_enviado', '1');
+}
 
-        if(typeof fbq === "function"){
-          fbq('track','ViewContent',{
-            content_name: contentName,
-            content_category: 'Plano',
-            value: valor,
-            currency: 'BRL'
-          });
-        }
+if(typeof fbq === "function"){
+  fbq('track','ViewContent',{
+    content_name: contentName,
+    content_category: 'Plano',
+    value: valor,
+    currency: 'BRL'
+  });
+}
 
         console.log("ViewContent plano:", contentName, valor);
 
