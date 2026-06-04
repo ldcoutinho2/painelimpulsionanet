@@ -166,16 +166,16 @@ function saveServico(servico, nome){
 
   if (!sessionStorage.getItem('servico_enviado')) {
 
-    fetch('midianedigital.onrender.com/evento', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        tipo: 'servico',
-        servico: nome
-      })
-    }).catch(() => {});
+fetch('https://painelimpulsionanet.onrender.com/evento', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    tipo: 'servico',
+    servico: nome
+  })
+}).catch(() => {});
 
     sessionStorage.setItem('servico_enviado', '1');
   }
