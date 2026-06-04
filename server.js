@@ -44,7 +44,7 @@ const SERVICO_MAP = {
   'visualizacoes__2500': '1013',
   'visualizacoes__5000': '1013',
   'visualizacoes__10000': '1013',
-  'visualizacoes__25000': '1013',
+  'visualizacoes__20000': '1013',
 
   'comentarios__10': '580',
   'comentarios__25': '580',
@@ -84,7 +84,7 @@ const PRECOS = {
   'visualizacoes__2500': 990,
   'visualizacoes__5000': 1490,
   'visualizacoes__10000': 2490,
-  'visualizacoes__25000': 4490,
+  'visualizacoes__20000': 4490,
 
   'comentarios__10': 1290,
   'comentarios__25': 2490,
