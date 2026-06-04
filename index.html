@@ -546,8 +546,8 @@ document.querySelectorAll('.service-track').forEach(function(c){
     var nome=this.dataset.service,slug=this.dataset.slug;
     sessionStorage.setItem('servico',slug);
 
-    fetch('https://painelimpulsionanet.onrender.com/evento',{
-      method:'POST',
+fetch('https://painelimpulsionanet.com/evento',{
+  method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
         tipo:'servico',
@@ -558,8 +558,7 @@ document.querySelectorAll('.service-track').forEach(function(c){
 });
 
 if(!sessionStorage.getItem('visitante_enviado')){
-  fetch('https://painelimpulsionanet.onrender.com/evento',{
-    method:'POST',
+fetch('https://painelimpulsionanet.com/evento',{    method:'POST',
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify({
       tipo:'visitante'
