@@ -276,7 +276,7 @@ async function enviarPurchaseMeta(pedido) {
           event_time: Math.floor(Date.now() / 1000),
           event_id: eventId,
           action_source: 'website',
-          event_source_url: process.env.SITE_URL || 'https://midianetdigital.vercel.app',
+         event_source_url: process.env.SITE_URL || 'https://painelimpulsionanet.vercel.app',
           user_data: {},
           custom_data: {
             currency: 'BRL',
@@ -724,7 +724,7 @@ app.post('/criar-pedido', async (req, res) => {
         'https://api.pushinpay.com.br/api/pix/cashIn',
         {
           value: valorCentavos,
-          webhook_url: 'https://midianetdigital.onrender.com/webhook-pushinpay'
+          webhook_url: ''
         },
         {
           headers: {
@@ -758,9 +758,8 @@ console.log(JSON.stringify(payment, null, 2));
           description: `MidiaNetDigital - ${servico} ${plano}`,
           payment_method_id: 'pix',
           external_reference: pedidoId,
-          notification_url: 'https://midianetdigital.onrender.com/webhook-mercadopago',
-          payer: {
-            email: `cliente_${pedidoId.slice(0, 8)}@midianetdigital.com`,
+          notification_url: 'https://painelimpulsionanet.onrender.com/webhook-mercadopago',    
+          payer: {  email: `cliente_${pedidoId.slice(0, 8)}@midianetdigital.com`,
             first_name: nome
           }
         },
