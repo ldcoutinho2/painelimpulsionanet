@@ -724,7 +724,7 @@ app.post('/criar-pedido', async (req, res) => {
         'https://api.pushinpay.com.br/api/pix/cashIn',
         {
           value: valorCentavos,
-          webhook_url: ''
+          webhook_url: 'https://painelimpulsionanet.onrender.com/webhook-pushinpay'
         },
         {
           headers: {
