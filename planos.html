@@ -223,19 +223,18 @@
 
         if (!sessionStorage.getItem('plano_enviado')) {
 
-  fetch('https://midianetdigital.onrender.com/evento', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      tipo: 'plano',
-      plano: contentName
-    })
-  }).catch(() => {});
+  fetch('https://painelimpulsionanet.onrender.com/evento', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    tipo: 'plano',
+    plano: contentName
+  })
+}).catch(() => {});
 
-  sessionStorage.setItem('plano_enviado', '1');
-}
+sessionStorage.setItem('plano_enviado', '1');
 
         if(typeof fbq === "function"){
           fbq('track','ViewContent',{
