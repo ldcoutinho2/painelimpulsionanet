@@ -172,8 +172,8 @@ fetch('https://painelimpulsionanet.onrender.com/evento', {
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    tipo: 'servico',
-    servico: nome
+    tipo: 'plano',
+    plano: contentName
   })
 }).catch(() => {});
 
