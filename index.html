@@ -541,18 +541,33 @@
     })();
 
     /* SERVICE TRACKING */
-    document.querySelectorAll('.service-track').forEach(function(c){
-      c.addEventListener('click',function(){
-        var nome=this.dataset.service,slug=this.dataset.slug;
-        sessionStorage.setItem('servico',slug);
-        fetch('https://midianetdigital.onrender.com/evento',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tipo:'servico',servico:nome})}).catch(()=>{});
-        if(typeof fbq==='function')fbq('track','ViewContent',{content_name:nome,content_category:'Servico'});
-      });
-    });
-    if(!sessionStorage.getItem('visitante_enviado')){
-      fetch('https://midianetdigital.onrender.com/evento',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tipo:'visitante'})}).catch(()=>{});
-      sessionStorage.setItem('visitante_enviado','1');
-    }
+document.querySelectorAll('.service-track').forEach(function(c){
+  c.addEventListener('click',function(){
+    var nome=this.dataset.service,slug=this.dataset.slug;
+    sessionStorage.setItem('servico',slug);
+
+    fetch('https://painelimpulsionanet.onrender.com/evento',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        tipo:'servico',
+        servico:nome
+      })
+    }).catch(()=>{});
+  });
+});
+
+if(!sessionStorage.getItem('visitante_enviado')){
+  fetch('https://painelimpulsionanet.onrender.com/evento',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      tipo:'visitante'
+    })
+  }).catch(()=>{});
+
+  sessionStorage.setItem('visitante_enviado','1');
+}
 
     /* SMOOTH SCROLL */
     document.querySelectorAll('a[href^="#"]').forEach(function(a){
